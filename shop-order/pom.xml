@@ -12,6 +12,13 @@
     <artifactId>shop-order</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.shl</groupId>
+            <artifactId>shop-starter</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.shl</groupId>
             <artifactId>shop-bean</artifactId>
@@ -33,7 +40,7 @@
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
 
-        
+
     </dependencies>
 
 </project>

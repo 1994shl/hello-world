@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement(proxyTargetClass = true)
 @MapperScan(value = {"com.shl.ssa.shop.order.mapper"})
+//@Import(ShopStarterAutoConfiguration.class)
 public class OrderApplication {
 
     public static void main(String[] args) {
@@ -34,4 +35,9 @@ public class OrderApplication {
             System.out.println(beanDefinitionName);
         }*/
     }
+
+    /*@Bean
+    public ShopStarterTest getShopStarterTest(){
+        return new ShopStarterTest();
+    }*/
 }

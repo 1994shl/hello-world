@@ -245,3 +245,10 @@
 /shop-utils/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
 /shop-utils/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 /shop-utils/target/shop-utils-1.0-SNAPSHOT.jar
+/.idea/uiDesigner.xml
+/shop-starter/target/classes/META-INF/spring-configuration-metadata.json
+/shop-starter/target/classes/META-INF/spring.factories
+/shop-starter/target/classes/com/shl/ssa/shop/starter/ShopStarterProperties.class
+/shop-starter/target/classes/com/shl/ssa/shop/starter/ShopStarterAutoConfiguration.class
+/shop-starter/target/classes/com/shl/ssa/shop/starter/conditional/ShopCondition.class
+/shop-starter/target/classes/com/shl/ssa/shop/starter/conditional/ConditionOnShop.class

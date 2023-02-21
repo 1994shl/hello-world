@@ -3,6 +3,7 @@ server:
   tomcat:
     max-threads: 200
 
+
 spring:
   application:
     name: server-order
@@ -67,3 +68,6 @@ spring:
 feign:
   sentinel:
     enabled: true
+shl:
+  shop:
+    work-name: coding

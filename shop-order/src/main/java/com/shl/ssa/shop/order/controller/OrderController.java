@@ -7,6 +7,7 @@ import com.shl.ssa.shop.order.service.OrderService;
 import com.shl.ssa.shop.order.strategyfactory.BHandler;
 import com.shl.ssa.shop.order.strategyfactory.StrategyFactory;
 import com.shl.ssa.shop.order.thread.TestThread;
+import com.shl.ssa.shop.starter.ShopStarterTest;
 import com.shl.ssa.shop.utils.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -108,4 +109,14 @@ public class OrderController {
             v.handle();
         });
     }
+
+    @Resource
+    private ShopStarterTest shopStarterTest;
+
+    @PostMapping(value = "/thirdPartyAutoConfiguration")
+    public void thirdPartyAutoConfiguration(){
+        shopStarterTest.doSth();
+    }
+
+
 }

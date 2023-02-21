@@ -1,5 +1,7 @@
 package com.shl.ssa.shop.starter;
 
+import javax.annotation.Resource;
+
 /**
  * @author 施海林
  * @create 2023-02-21 10:17
@@ -7,9 +9,15 @@ package com.shl.ssa.shop.starter;
  */
 public class ShopStarterTest {
 
-    private String workName = "touch fish";
+    @Resource
+    private ShopStarterProperties properties;
+
+    /*public void doSth(String workName) {
+        System.out.println("shl is work on " + workName);
+    }*/
 
     public void doSth() {
-        System.out.println("shl is work on " + workName);
+        System.out.println("shl is working on " + properties.getWorkName());
     }
+
 }
