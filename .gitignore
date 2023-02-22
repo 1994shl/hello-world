@@ -252,3 +252,5 @@
 /shop-starter/target/classes/com/shl/ssa/shop/starter/ShopStarterAutoConfiguration.class
 /shop-starter/target/classes/com/shl/ssa/shop/starter/conditional/ShopCondition.class
 /shop-starter/target/classes/com/shl/ssa/shop/starter/conditional/ConditionOnShop.class
+/shop-order/target/classes/com/shl/ssa/shop/order/extend/listener/ShopOrderApplicationStartedEventListener.class
+/shop-order/target/classes/com/shl/ssa/shop/order/extend/listener/ShopOrderApplicationStartingEventListener.class
