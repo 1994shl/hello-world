@@ -1,0 +1,14 @@
+# Application Context Initializers
+org.springframework.context.ApplicationContextInitializer=\
+  com.shl.ssa.shop.order.extend.initializer.ShopOrderInitializer
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+  com.shl.ssa.shop.order.extend.listener.ShopOrderApplicationStartingEventListener,\
+  com.shl.ssa.shop.order.extend.listener.ShopOrderApplicationStartedEventListener
+
+
+# Application AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.shl.ssa.shop.starter.ShopStarterAutoConfiguration
+

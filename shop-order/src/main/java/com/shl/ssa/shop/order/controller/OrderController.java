@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,5 +119,9 @@ public class OrderController {
         shopStarterTest.doSth();
     }
 
+    @GetMapping(value = "/testRequest")
+    public void testRequest(HttpServletRequest request){
+        System.out.println(">>>>>>>>>>>>testRequest is " + request.getMethod());
+    }
 
 }

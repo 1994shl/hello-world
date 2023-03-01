@@ -14,7 +14,7 @@ public class ShopOrderApplicationStartedEventListener implements ApplicationList
 
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event) {
-        System.out.println("ShopOrderApplicationStartedEventListener is working! and enent type is "
+        System.out.println(Thread.currentThread().getName()+" ShopOrderApplicationStartedEventListener is working! and enent type is "
                 + event.getClass().getName());
     }
 }
