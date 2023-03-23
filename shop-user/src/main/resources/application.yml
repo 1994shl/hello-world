@@ -1,7 +1,7 @@
 server:
   port: 8060
-  servlet:
-    context-path: /user
+  #servlet:
+   # context-path: /user
 spring:
   application:
     name: server-user

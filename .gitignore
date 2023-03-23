@@ -257,3 +257,4 @@
 /shop-order/target/classes/com/shl/ssa/shop/order/extend/initializer/ShopOrderInitializer.class
 /shop-order/target/classes/com/shl/ssa/shop/order/extend/beanfactorypostprocessor/ShopOrderBeanFactoryPostProcessor.class
 /shop-order/target/classes/com/shl/ssa/shop/order/extend/beanPostProcessor/ShopOrderBeanPostProcessor.class
+/shop-starter/target/test-classes/JoinTest.class
