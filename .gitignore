@@ -258,3 +258,11 @@
 /shop-order/target/classes/com/shl/ssa/shop/order/extend/beanfactorypostprocessor/ShopOrderBeanFactoryPostProcessor.class
 /shop-order/target/classes/com/shl/ssa/shop/order/extend/beanPostProcessor/ShopOrderBeanPostProcessor.class
 /shop-starter/target/test-classes/JoinTest.class
+/shop-product/target/classes/com/shl/ssa/shop/product/util/XMLPaser.class
+/shop-starter/target/surefire-reports/TEST-JoinTest.xml
+/shop-product/target/classes/com/shl/ssa/shop/product/test/SynRegionInfo.class
+/shop-product/target/classes/com/shl/ssa/shop/product/test/SynPointInfo.class
+/shop-order/target/classes/META-INF/spring.factories
+/shop-product/target/classes/com/shl/ssa/shop/product/test/RegionItem.class
+/shop-product/target/classes/com/shl/ssa/shop/product/test/PointItem.class
+/shop-starter/target/surefire-reports/JoinTest.txt
