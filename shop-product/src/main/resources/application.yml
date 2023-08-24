@@ -1,15 +1,13 @@
 server:
-  port: 8070
-  servlet:
-    context-path: /product
+  port: 8080
 spring:
   application:
     name: server-product
   cloud:
     nacos:
       discovery:
-        server-addr: 172.20.97.2:8848
-        namespace: c995497a-e6c2-4470-9fcf-40551da23f47
+        server-addr: 192.168.7.10:8848
+        namespace: d866aaaa-d339-4909-a2bf-40d9878e73f1
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.20.97.8:5236/sys_schema?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
