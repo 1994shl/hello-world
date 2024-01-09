@@ -4,6 +4,9 @@ import lombok.Data;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author 施海林
  * @create 2023-06-08 10:49
@@ -81,4 +84,32 @@ public class PointItem {
 
     @Attribute(name = "video_pos", required = false)
     private String videoPos;
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        /*list.add("a");
+        list.add("a");
+        list.add("a");
+        list.add("a");
+        list.add("b");
+        list.add("b");
+        list.add("b");
+        list.add("c");
+        list.add("c");*/
+        long aNum = list.stream().filter("a"::equals).count();
+        long bNum = list.stream().filter("b"::equals).count();
+        long cNum = list.stream().filter("c"::equals).count();
+        long dNum = list.stream().filter("d"::equals).count();
+
+        Long value = 0L;
+
+        System.out.println(aNum);
+        System.out.println(bNum);
+        System.out.println(cNum);
+        System.out.println(dNum);
+        value = value + aNum;
+
+        System.out.println(value);
+
+    }
 }

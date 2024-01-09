@@ -25,20 +25,38 @@ public class SilentTaskHolder {
     private static Map<String, SilentTask> taskMap = new HashMap<>(128);
 
 
+    public static Thread thread;
+
     public void putTask(String key) {
 
         SilentTask task = new SilentTask(key);
+
+
+
+
         taskMap.put(key, task);
-        silentExecutor.execute(task);
+
+        task.test();
+
+        //silentExecutor.execute(()->{ task});
+        //task.start();
     }
 
     public void stopTask(String key) {
         SilentTask remove = taskMap.remove(key);
         if (null == remove) {
             log.warn("task key is {} and remove null!", key);
+            return;
         }
         log.info("remove {} from IntervalTaskManager", key);
-        remove.setFlag(false);
+
+       /* silentExecutor.
+
+
+        remove.stopSilentMonitorTask();
+*/
+
+
     }
 
 }

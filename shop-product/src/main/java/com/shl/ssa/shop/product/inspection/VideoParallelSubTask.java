@@ -22,6 +22,7 @@ import java.util.stream.Stream;
  * @Description
  */
 @Slf4j
+@Deprecated
 public class VideoParallelSubTask extends Thread {
 
     private String taskMrid;
@@ -54,9 +55,10 @@ public class VideoParallelSubTask extends Thread {
         log.info("任务继续执行");
 
 
-        taskState = 2L;
+        this.taskState = 2L;
 
-        //上报任务继续状态
+        //通知分析子线程终止任务
+        this.consumer.continueExe();
 
         log.info("当前执行到第" + (index + 1) + "个点位，继续执行");
     }
@@ -64,12 +66,14 @@ public class VideoParallelSubTask extends Thread {
     public synchronized void terminateExe() {
         log.info("任务终止执行");
 
-        taskState = 4L;
+        this.taskState = 4L;
 
         //通知分析子线程终止任务
         this.consumer.terminate();
 
         log.info("当前执行到第" + index + "个点位，终止执行");
+
+
     }
 
     public synchronized void pauseExe() {
@@ -77,7 +81,10 @@ public class VideoParallelSubTask extends Thread {
 
         //上报任务状态
 
-        taskState = 3L;
+
+        this.taskState = 3L;
+        //通知分析子线程终止任务
+        this.consumer.pauseExe();
 
         log.info("当前执行到第" + index + "个点位，暂停执行");
     }
@@ -136,7 +143,17 @@ public class VideoParallelSubTask extends Thread {
 
         //TODO:上报已经截了图的，然后终止子线程
         public void terminate() {
+            //上报所有analysisMap剩余数据
+            log.info("report analysisMap");
             this.taskState = 4L;
+        }
+
+        public void continueExe() {
+            this.taskState = 2L;
+        }
+
+        public void pauseExe() {
+            this.taskState = 3L;
         }
 
         @Override
@@ -147,6 +164,9 @@ public class VideoParallelSubTask extends Thread {
                 if (this.taskState.equals(4L)) {
                     break;
                 }
+
+                log.info("task State is {}", this.taskState);
+
                 if (CollectionUtils.isEmpty(this.picList)) {
                     TimeUnit.SECONDS.sleep(1);
                 } else {
@@ -159,5 +179,7 @@ public class VideoParallelSubTask extends Thread {
             }
             log.info("out sub consume thread!");
         }
+
+
     }
 }

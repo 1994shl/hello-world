@@ -1,6 +1,7 @@
 package com.shl.ssa.shop.product.controller;
 
 import com.shl.ssa.shop.product.inspection.VideoTaskHolder;
+import com.shl.ssa.shop.product.service.WebSocketService;
 import com.shl.ssa.shop.product.silent.SilentTaskHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,6 +70,12 @@ public class VideoTaskControler {
     @PostMapping(value = "/stopSilent")
     public String stopSilent(@RequestBody StartTaskRequest request) {
         silentTaskHolder.stopTask(request.getTaskMrid());
+        return request.getTaskMrid();
+    }
+
+    @PostMapping(value = "/sendWebSocket")
+    public String sendWebSocket(@RequestBody StartTaskRequest request) {
+        WebSocketService.sendAllMessage("hello,world!");
         return request.getTaskMrid();
     }
 

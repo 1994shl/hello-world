@@ -2,7 +2,6 @@ package com.shl.ssa.shop.product.silent;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.ParseException;
@@ -27,17 +26,43 @@ public class SilentTask implements Runnable {
 
     private String mrid;
 
+    /**
+     * 停止执行
+     */
+    public void stopSilentMonitorTask() {
+        this.flag = false;
+        log.info("current name is {}", Thread.currentThread().getName());
+    }
+
+
     public SilentTask(String mrid) {
         this.mrid = mrid;
     }
 
-    @SneakyThrows
+    public void test() {
+        log.info("current name is {}", Thread.currentThread().getName());
+    }
+
     @Override
     public void run() {
-        while (true && flag) {
+
+        //Thread.currentThread().interrupt();
+
+
+        while (flag) {
+            log.info("我在执行静默任务:{},current thread is interrupted {}", mrid, Thread.currentThread().isInterrupted());
+
+            test();
             //模拟执行
-            TimeUnit.SECONDS.sleep(3);
-            log.info("我在执行静默任务:{}", mrid);
+            try {
+                TimeUnit.SECONDS.sleep(20);
+                log.info("current thread is interrupted {}", Thread.currentThread().isInterrupted());
+
+            } catch (InterruptedException e) {
+
+                log.info("catch InterruptedException,so quit!");
+                break;
+            }
         }
         log.info("task:{} out!", mrid);
     }
@@ -45,5 +70,11 @@ public class SilentTask implements Runnable {
     public static void main(String[] args) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         System.out.println(sdf.parse("15:15:15"));
+
+
+        String value = "A.123";
+        Float f = Float.valueOf(value);
+
+        System.out.println(f);
     }
 }

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author 施海林
@@ -20,7 +19,7 @@ public class VideoTaskHolder {
 
     private static Map<String, VideoTask> taskMap = new HashMap<>(128);
 
-    private static Map<String, VideoParallelSubTask> parallelTaskMap = new HashMap<>(128);
+    private static Map<String, InspectionTask> parallelTaskMap = new HashMap<>(128);
 
     public String startVideoTask(String taskMrid) {
         /*List<String> list = Arrays.asList(taskMrid.split(","));
@@ -29,14 +28,14 @@ public class VideoTaskHolder {
         task.start();
         return taskMrid;*/
 
-        VideoParallelSubTask task = new VideoParallelSubTask(taskMrid);
+        InspectionTask task = new InspectionTask(taskMrid);
         parallelTaskMap.put(taskMrid, task);
         task.start();
         return taskMrid;
     }
 
     public void pauseVideoTask(String taskMrid) {
-        VideoParallelSubTask task = parallelTaskMap.get(taskMrid);
+        InspectionTask task = parallelTaskMap.get(taskMrid);
         if (null != task) {
             task.pauseExe();
         } else {
@@ -45,7 +44,7 @@ public class VideoTaskHolder {
     }
 
     public void continueVideoTask(String taskMrid) {
-        VideoParallelSubTask task = parallelTaskMap.get(taskMrid);
+        InspectionTask task = parallelTaskMap.get(taskMrid);
         if (null != task) {
             task.continueExe();
         } else {
@@ -54,7 +53,7 @@ public class VideoTaskHolder {
     }
 
     public void terminateVideoTask(String taskMrid) {
-        VideoParallelSubTask task = parallelTaskMap.get(taskMrid);
+        InspectionTask task = parallelTaskMap.remove(taskMrid);
         if (null != task) {
             task.terminateExe();
         } else {
@@ -85,14 +84,58 @@ public class VideoTaskHolder {
     public static void main(String[] args) {
 
 
-        List<Integer> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
 
-        System.out.println(list.stream().map(String::valueOf).collect(Collectors.joining(",")));
+       /* list.forEach(item -> {
+            switch (item){
+                case "a":
+                    System.out.println(item);
+                    break;
+                case "b":
+                    System.out.println(item);
+                    break;
+                case "c":
+                    System.out.println(item);
+                    break;
+                case "d":
+                    System.out.println(item);
+                    break;
+                case "e":
+                    System.out.println(item);
+                    break;
+                default:
+                    System.out.println("hello");
+            }
+        });*/
+
+        switch (list.get(1)){
+            case "a":
+                System.out.println(1);
+                break;
+            case "b":
+                System.out.println(2);
+                break;
+            case "c":
+                System.out.println(3);
+                break;
+            case "d":
+                System.out.println(4);
+                break;
+            case "e":
+                System.out.println(5);
+                break;
+            default:
+                System.out.println("hello");
+        }
+
+
+       // System.out.println(list.stream().map(String::valueOf).collect(Collectors.joining(",")));
 
     }
 }
